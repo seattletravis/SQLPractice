@@ -3,6 +3,9 @@
 -- Sample data + practice queries
 -- Safe to run repeatedly
 -- ==========================================
+
+
+
 INSERT INTO practice.customers (first_name, last_name, email, signup_date)
 VALUES
 ('Ava', 'Thompson', 'ava.thompson@example.com', '2024-01-12'),
