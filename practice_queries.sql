@@ -37,9 +37,21 @@ SELECT customer_id, COUNT(*) as order_count
 FROM practice.orders
 GROUP BY customer_id;
 
+SELECT customer_id, total_amount FROM practice.orders
+ORDER BY total_amount DESC;
 
+SELECT MAX(total_amount) AS max_order FROM practice.orders;
 
+SELECT customer_id, COUNT(*) as order_count 
+FROM practice.orders
+GROUP BY customer_id
+HAVING COUNT(*) > 2;
 
+SELECT DATE_TRUNC('month', order_date) AS month, SUM(total_amount) AS total_revenue
+FROM practice.orders
+GROUP BY month
+ORDER BY month;
 
-
-
+SELECT *
+FROM practice.orders
+WHERE total_amount > (SELECT AVG(total_amount) FROM practice.orders);
