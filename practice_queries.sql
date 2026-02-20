@@ -15,18 +15,31 @@
 -- ALTER TABLE practice.orders_v2
 -- RENAME COLUMN order_total TO total_amount;
 
-SELECT * FROM practice.orders;
-SELECT 
-    customer_id,
-    order_date::date,
-    total_amount::numeric
+-- SELECT * FROM practice.orders;
+-- SELECT 
+--     customer_id,
+--     order_date::date,
+--     total_amount::numeric
+-- FROM practice.orders
+
+-- UNION
+
+-- SELECT
+--     customer_id,
+--     order_date::date,
+--     total_amount::numeric
+-- FROM practice.orders_v2;
+
+SELECT * FROM practice.orders
+WHERE order_date >= '2024-01-01' AND order_date < '2025-01-01';
+
+SELECT customer_id, COUNT(*) as order_count
 FROM practice.orders
+GROUP BY customer_id;
 
-UNION
 
-SELECT
-    customer_id,
-    order_date::date,
-    total_amount::numeric
-FROM practice.orders_v2;
+
+
+
+
 
