@@ -70,13 +70,18 @@
  -- FROM practice.orders;
  
 -- Sort customers by number of orders
-SELECT customer_id, COUNT(*) AS order_count
-FROM practice.orders
-GROUP BY customer_id
-ORDER BY order_count DESC;
+-- SELECT customer_id, COUNT(*) AS order_count
+-- FROM practice.orders
+-- GROUP BY customer_id
+-- ORDER BY order_count DESC;
 
--- Show all customers and their order counts (no filter
-SELECT customer_id, COUNT(*) AS order_count
-FROM practice.orders
-GROUP BY customer_id
-ORDER BY customer_id;
+-- -- Show all customers and their order counts (no filter
+-- SELECT customer_id, COUNT(*) AS order_count
+-- FROM practice.orders
+-- GROUP BY customer_id
+-- ORDER BY customer_id;
+
+-- Find all orders along with customer names
+SELECT o.customer_id, c.first_name, c.last_name, o.order_date, o.total_amount
+FROM practice.orders o JOIN practice.customers c
+ON o.customer_id = c.customer_id
