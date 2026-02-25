@@ -56,22 +56,27 @@
 -- FROM practice.orders
 -- WHERE total_amount > (SELECT AVG(total_amount) FROM practice.orders);
 
--- Sort customers by number of orders
 -- SELECT customer_id, COUNT(*) as order_count FROM practice.orders
 -- GROUP BY customer_id
 -- ORDER BY order_count DESC, customer_id;
 
--- Show customers with 2 or fewer orders
 -- SELECT customer_id, COUNT(*) AS order_count
 -- FROM practice.orders
 -- GROUP BY customer_id
 -- HAVING COUNT(*) < 3;
 
  -- Show all customers and their order counts (no filter)
- SELECT customer_id, COUNT(*) AS order_count
- FROM practice.orders
- GROUP BY customer_id
- ORDER BY order_count DESC;
+ -- SELECT DISTINCT ON(customer_id) customer_id, COUNT(*) AS order_count
+ -- FROM practice.orders;
  
+-- Sort customers by number of orders
+SELECT customer_id, COUNT(*) AS order_count
+FROM practice.orders
+GROUP BY customer_id
+ORDER BY order_count DESC;
 
-
+-- Show all customers and their order counts (no filter
+SELECT customer_id, COUNT(*) AS order_count
+FROM practice.orders
+GROUP BY customer_id
+ORDER BY customer_id;
